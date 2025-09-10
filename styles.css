@@ -43,6 +43,10 @@ header .container {
   color: var(--text);
   text-decoration: none;
 }
+.logo img {
+  height: 40px;
+  display: block;
+}
 
 nav ul {
   list-style: none;
