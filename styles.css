@@ -158,6 +158,13 @@ sl-card.team-card:hover {
   box-shadow: 0 0 10px var(--accent);
 }
 
+.team-card [slot="image"] {
+  display: block;
+  margin: 0 auto;
+  max-width: 150px; /* ajuster selon le rendu souhaité */
+  height: auto;
+}
+
 .swiper {
   width: 100%;
   padding: 1rem 0;
