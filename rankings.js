@@ -1,12 +1,8 @@
 async function fetchPandaScore(endpoint) {
-  const token = 'W4FBc_KPgNhEBeKAz1sdkPpqHYtEIQj9ZRE1R3ing_ASYpFkoAE';
+   const token = typeof PANDASCORE_TOKEN !== 'undefined' ? PANDASCORE_TOKEN : '';// TODO: move token to environment variable
   const baseUrl = 'https://api.pandascore.co';
-  const url = `${baseUrl}${endpoint}`;
-  const response = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  });
+const url = `${baseUrl}${endpoint}?token=${token}`;
+  const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`PandaScore API error: ${response.status}`);
   }
