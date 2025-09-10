@@ -1,27 +1,30 @@
-async function fetchPandaScore(endpoint) {
-   const token = typeof PANDASCORE_TOKEN !== 'undefined' ? PANDASCORE_TOKEN : '';// TODO: move token to environment variable
-  const baseUrl = 'https://api.pandascore.co';
-const url = `${baseUrl}${endpoint}?token=${token}`;
+async function fetchProxy(endpoint) {
+  const baseUrl = 'http://localhost:3000/api';
+  const url = `${baseUrl}${endpoint}`;
   const response = await fetch(url);
   if (!response.ok) {
-    throw new Error(`PandaScore API error: ${response.status}`);
+    throw new Error(`Proxy API error: ${response.status}`);
   }
   return response.json();
 }
 
 async function loadRankings() {
   try {
-    const teams = await fetchPandaScore('/lol/teams?sort=-ranking');
+    // Maintenant on tape ton proxy : /api/lol/teams
+    const teams = await fetchProxy('/lol/teams');
     const tbody = document.querySelector('#ranking-body');
     const labels = [];
     const scores = [];
 
+    tbody.innerHTML = ""; // reset tableau
+
     teams.slice(0, 10).forEach((team, index) => {
-      const rank = team.ranking ?? index + 1;
-      const score = team.score ?? team.rating ?? 0;
+      const rank = index + 1;
+      const score = team.stats ? team.stats.wins ?? 0 : 0; // PandaScore n’a pas "ranking"
       const tr = document.createElement('tr');
       tr.innerHTML = `<td>${rank}</td><td>${team.name}</td><td>${score}</td>`;
       tbody.appendChild(tr);
+
       labels.push(team.acronym || team.name);
       scores.push(score);
     });
@@ -38,8 +41,8 @@ async function loadRankings() {
         }]
       },
       options: {
-        plugins:{legend:{display:false}},
-        scales:{y:{beginAtZero:true}}
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
       }
     });
   } catch (err) {

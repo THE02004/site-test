@@ -75,7 +75,7 @@
 <script>
   async function showUpcoming() {
     try {
-      const res = await fetch("https://api.pandascore.co/lol/matches/upcoming?token=W4FBc_KPgNhEBeKAz1sdkPpqHYtEIQj9ZRE1R3ing_ASYpFkoAE");
+      const res = await fetch("http://localhost:3000/api/lol/matches");
       const matches = await res.json();
 
       const container = document.getElementById("matches");
@@ -90,7 +90,7 @@
         container.appendChild(li);
       });
     } catch (e) {
-      console.error("Erreur API PandaScore :", e);
+      console.error("Erreur API Proxy PandaScore :", e);
     }
   }
   showUpcoming();
