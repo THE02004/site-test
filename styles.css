@@ -161,8 +161,8 @@ sl-card.team-card:hover {
 .team-card [slot="image"] {
   display: block;
   margin: 0 auto;
-  max-width: 30px;
-  height: auto;
+  width: 40px !important;
+  height: auto !important;
 }
 
 .swiper {

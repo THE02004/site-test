@@ -1,8 +1,12 @@
 async function fetchPandaScore(endpoint) {
   const token = 'W4FBc_KPgNhEBeKAz1sdkPpqHYtEIQj9ZRE1R3ing_ASYpFkoAE';
   const baseUrl = 'https://api.pandascore.co';
-  const url = `${baseUrl}${endpoint}${endpoint.includes('?') ? '&' : '?'}token=${token}`;
-  const response = await fetch(url);
+  const url = `${baseUrl}${endpoint}`;
+  const response = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
   if (!response.ok) {
     throw new Error(`PandaScore API error: ${response.status}`);
   }
@@ -44,6 +48,8 @@ async function loadRankings() {
     });
   } catch (err) {
     console.error('Erreur chargement classement:', err);
+    const tbody = document.querySelector('#ranking-body');
+    tbody.innerHTML = '<tr><td colspan="3">Classement indisponible</td></tr>';
   }
 }
 
