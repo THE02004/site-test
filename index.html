@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Esports Global Hub</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/themes/dark.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 </head>
 <body>
      <!-- Header principal avec navigation -->
   <header class="site-header">
     <div class="container">
       <h1 class="logo">Esports Global Hub</h1>
-      <!-- Toggle pour menu mobile -->
-      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
       <nav class="site-nav">
         <a href="index.html">Accueil</a>
         <a href="rankings.html">Classements</a>
@@ -27,35 +32,71 @@
       </label>
     </div>
   </header>
-
-
+<main class="container">
     <section>
       <h2>🏆 Top structures inter-jeux</h2>
-        <div class="cards">
-        <div class="card"><h3>G2 Esports</h3></div>
-        <div class="card"><h3>T1</h3></div>
-        <div class="card"><h3>Natus Vincere</h3></div>
-        <div class="card"><h3>Team Liquid</h3></div>
+            <div class="cards">
+        <sl-card class="card" data-aos="fade-up" data-aos-delay="0">
+          <img slot="image" src="https://via.placeholder.com/300x150?text=G2" alt="G2 Esports" />
+          <strong>G2 Esports</strong>
+        </sl-card>
+        <sl-card class="card" data-aos="fade-up" data-aos-delay="100">
+          <img slot="image" src="https://via.placeholder.com/300x150?text=T1" alt="T1" />
+          <strong>T1</strong>
+        </sl-card>
+        <sl-card class="card" data-aos="fade-up" data-aos-delay="200">
+          <img slot="image" src="https://via.placeholder.com/300x150?text=NaVi" alt="NaVi" />
+          <strong>Natus Vincere</strong>
+        </sl-card>
+        <sl-card class="card" data-aos="fade-up" data-aos-delay="300">
+          <img slot="image" src="https://via.placeholder.com/300x150?text=TL" alt="Team Liquid" />
+          <strong>Team Liquid</strong>
+        </sl-card>
       </div>
     </section>
 
     <section>
       <h2>📅 Événements à venir</h2>
-       <div class="cards">
-        <div class="card">
-          <h3>Worlds 2025</h3>
-          <p>League of Legends</p>
+            <div class="swiper event-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <sl-card class="card">
+              <strong slot="header">LoL Worlds 2025</strong>
+              Championnat mondial de League of Legends.
+            </sl-card>
+          </div>
+          <div class="swiper-slide">
+            <sl-card class="card">
+              <strong slot="header">CS2 Major 2025</strong>
+              Le plus grand tournoi Counter-Strike 2.
+            </sl-card>
+          </div>
+          <div class="swiper-slide">
+            <sl-card class="card">
+              <strong slot="header">The International 2025</strong>
+              L'événement majeur de Dota 2.
+            </sl-card>
+          </div>
         </div>
-        <div class="card">
-          <h3>CS2 Major</h3>
-          <p>Counter-Strike 2</p>
-        </div>
-        <div class="card">
-          <h3>The International 2025</h3>
-          <p>Dota 2</p>
-        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
     </section>
+    <section class="cta">
+      <sl-button variant="primary">Rejoindre la communauté</sl-button>
+    </section>
   </main>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/shoelace.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    const swiper = new Swiper('.event-swiper', {
+      loop: true,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+    });
+  </script>
 </body>
 </html>

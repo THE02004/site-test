@@ -32,7 +32,7 @@ body {
 .site-header .container {
   display: flex;
   align-items: center;
-    justify-content: space-between;
+  justify-content: space-between;
   padding: 1rem 2rem;
 }
 
@@ -112,33 +112,53 @@ body {
 }
 
 main {
-    padding-top: 100px; /* Décalage pour le header fixe */
+   padding-top: 100px; /* Décalage pour le header fixe */
 }
 
 section {
   margin: 2rem 0;
 }
 
+/* Cartes communes */
 .cards {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.card {
-  background: #1c1f2e;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+sl-card.card,
+sl-card.team,
+sl-card.match-card {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.card:hover {
+sl-card.card::part(base),
+sl-card.team::part(base),
+sl-card.match-card::part(base) {
+  background: #1c1f2e;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+sl-card.card:hover,
+sl-card.team:hover,
+sl-card.match-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 
-/* Tableaux */
+/* Swiper */
+.swiper {
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+/* Tableau */
 .table-container {
   overflow-x: auto;
 }
@@ -171,23 +191,20 @@ tbody tr:nth-child(even) {
 /* Bracket */
 .bracket {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   gap: 2rem;
+  flex-wrap: wrap;
+  text-align: center;
 }
 
-.round, .final {
+.round {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.match {
-  background: #1c1f2e;
-  padding: 1rem;
-   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  text-align: center;
+.match-card.champion::part(base) {
+  border: 2px solid #3b82f6;
 }
 
 /* Liste des équipes */
@@ -197,16 +214,6 @@ tbody tr:nth-child(even) {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.team {
-  background: #1c1f2e;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
 
 .team img {
   width: 60px;
@@ -214,13 +221,30 @@ tbody tr:nth-child(even) {
   border-radius: 6px;
 }
 
-.team:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+/* Sections pays */
+.country {
+  margin-bottom: 2rem;
 }
 
-/* Sections pays */
+.country h2 {
+  color: #3b82f6;
+  margin-bottom: 0.5rem;
+}
+
 .country ul {
   list-style: none;
   padding: 0;
+}
+
+.country li {
+  padding: 0.25rem 0;
+}
+
+.country .medal {
+  margin-right: 0.5rem;
+}
+
+/* Call-to-action section */
+.cta {
+  text-align: center;
 }

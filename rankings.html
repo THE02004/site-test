@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Classement Global - Esports Global Hub</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/themes/dark.css" />
 </head>
 <body>
   <!-- Header partagé -->
   <header class="site-header">
     <div class="container">
       <h1 class="logo">Esports Global Hub</h1>
-      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
       <nav class="site-nav">
         <a href="index.html">Accueil</a>
         <a href="rankings.html">Classements</a>
@@ -62,6 +66,28 @@
         </tbody>
       </table>
     </div>
+    <canvas id="scoreChart" width="400" height="200"></canvas>
   </main>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/shoelace.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script>
+    const ctx = document.getElementById('scoreChart');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['G2 Esports', 'NaVi', 'T1', 'Team Liquid'],
+        datasets: [{
+          label: 'Points',
+          data: [95, 90, 88, 85],
+          backgroundColor: '#3b82f6'
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
