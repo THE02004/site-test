@@ -2,39 +2,59 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Esports Global Hub</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Esports Global Hub</h1>
-    <nav>
-      <a href="index.html">Accueil</a>
-      <a href="rankings.html">Classements</a>
-      <a href="events.html">Événements</a>
-      <a href="teams.html">Structures</a>
-      <a href="countries.html">Pays</a>
-    </nav>
+     <!-- Header principal avec navigation -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Esports Global Hub</h1>
+      <!-- Toggle pour menu mobile -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <nav class="site-nav">
+        <a href="index.html">Accueil</a>
+        <a href="rankings.html">Classements</a>
+        <a href="events.html">Événements</a>
+        <a href="teams.html">Structures</a>
+        <a href="countries.html">Pays</a>
+      </nav>
+      <label for="menu-toggle" class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
   </header>
 
-  <main>
+
     <section>
       <h2>🏆 Top structures inter-jeux</h2>
-      <ul class="cards">
-        <li><strong>G2 Esports</strong> · League of Legends · EU</li>
-        <li><strong>T1</strong> · League of Legends · KR</li>
-        <li><strong>NaVi</strong> · CS2 · UA</li>
-        <li><strong>Team Liquid</strong> · Dota 2 · US</li>
-      </ul>
+        <div class="cards">
+        <div class="card"><h3>G2 Esports</h3></div>
+        <div class="card"><h3>T1</h3></div>
+        <div class="card"><h3>Natus Vincere</h3></div>
+        <div class="card"><h3>Team Liquid</h3></div>
+      </div>
     </section>
 
     <section>
       <h2>📅 Événements à venir</h2>
-      <ul class="cards">
-        <li>Worlds 2025 · LoL · Octobre</li>
-        <li>CS2 Major · Novembre</li>
-        <li>The International · Décembre</li>
-      </ul>
+       <div class="cards">
+        <div class="card">
+          <h3>Worlds 2025</h3>
+          <p>League of Legends</p>
+        </div>
+        <div class="card">
+          <h3>CS2 Major</h3>
+          <p>Counter-Strike 2</p>
+        </div>
+        <div class="card">
+          <h3>The International 2025</h3>
+          <p>Dota 2</p>
+        </div>
+      </div>
     </section>
   </main>
 </body>
