@@ -24,6 +24,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  height: 70px; /* hauteur fixe */
   background: #1a1d29;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   z-index: 1000;
@@ -112,7 +113,7 @@ body {
 }
 
 main {
-   padding-top: 100px; /* Décalage pour le header fixe */
+   padding-top: 70px; /* Décalage pour le header fixe */
 }
 
 section {
