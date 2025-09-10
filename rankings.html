@@ -46,13 +46,7 @@
     <thead>
       <tr><th>Rang</th><th>Équipe</th><th>Score</th></tr>
     </thead>
-    <tbody>
-      <tr><td>1</td><td>G2 Esports</td><td>980</td></tr>
-      <tr><td>2</td><td>T1</td><td>950</td></tr>
-      <tr><td>3</td><td>Natus Vincere</td><td>930</td></tr>
-      <tr><td>4</td><td>Team Liquid</td><td>900</td></tr>
-      <tr><td>5</td><td>Fnatic</td><td>870</td></tr>
-    </tbody>
+    <tbody id="ranking-body"></tbody>
   </table>
   <canvas id="rankingChart"></canvas>
 </section>
@@ -63,23 +57,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="main.js"></script>
-<script>
-const ctx = document.getElementById('rankingChart');
-new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['G2','T1','NaVi','Liquid','Fnatic'],
-    datasets: [{
-      label: 'Score',
-      data: [980,950,930,900,870],
-      backgroundColor: '#3b82f6'
-    }]
-  },
-  options: {
-    plugins:{legend:{display:false}},
-    scales:{y:{beginAtZero:true}}
-  }
-});
-</script>
+<script src="rankings.js"></script>
 </body>
 </html>
