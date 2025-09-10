@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Esport World Stats - Accueil</title>
+  <title>Esport World Stats - Structures</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.9.0/dist/themes/dark.css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.9.0/dist/shoelace.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -39,42 +38,28 @@
 </header>
 
 <section>
-  <h1>Top structures inter-jeux</h1>
+  <h1>Structures majeures</h1>
   <div class="card-grid">
     <sl-card class="team-card" data-aos="fade-up">
-      <img slot="image" src="https://via.placeholder.com/300x150?text=G2" alt="Logo G2 Esports">
+      <img slot="image" src="https://via.placeholder.com/300x150?text=G2" alt="G2 Esports">
       <strong>G2 Esports</strong>
-      <p>Multigaming européenne en pleine ascension.</p>
+      <p>Jeux principaux: LoL, CS2, Valorant</p>
     </sl-card>
     <sl-card class="team-card" data-aos="fade-up" data-aos-delay="100">
-      <img slot="image" src="https://via.placeholder.com/300x150?text=T1" alt="Logo T1">
+      <img slot="image" src="https://via.placeholder.com/300x150?text=T1" alt="T1">
       <strong>T1</strong>
-      <p>Légendes sud-coréennes dominantes sur LoL.</p>
+      <p>Jeux principaux: LoL, Valorant</p>
     </sl-card>
     <sl-card class="team-card" data-aos="fade-up" data-aos-delay="200">
-      <img slot="image" src="https://via.placeholder.com/300x150?text=NaVi" alt="Logo NaVi">
+      <img slot="image" src="https://via.placeholder.com/300x150?text=NaVi" alt="NaVi">
       <strong>Natus Vincere</strong>
-      <p>Icône CIS présente sur CS et Dota.</p>
+      <p>Jeux principaux: CS2, Dota 2</p>
     </sl-card>
     <sl-card class="team-card" data-aos="fade-up" data-aos-delay="300">
-      <img slot="image" src="https://via.placeholder.com/300x150?text=Liquid" alt="Logo Team Liquid">
+      <img slot="image" src="https://via.placeholder.com/300x150?text=Liquid" alt="Team Liquid">
       <strong>Team Liquid</strong>
-      <p>Puissance nord-américaine multisport.</p>
+      <p>Jeux principaux: LoL, Dota 2, Valorant</p>
     </sl-card>
-  </div>
-</section>
-
-<section>
-  <h2>Événements à venir</h2>
-  <div class="swiper" data-aos="fade-up">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">Worlds 2025</div>
-      <div class="swiper-slide">CS2 Major 2025</div>
-      <div class="swiper-slide">The International 2025</div>
-      <div class="swiper-slide">Valorant Champions 2025</div>
-      <div class="swiper-slide">Fortnite World Cup 2025</div>
-    </div>
-    <div class="swiper-pagination"></div>
   </div>
 </section>
 
@@ -83,14 +68,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="main.js"></script>
-<script>
-  const swiper = new Swiper('.swiper', {
-    loop: true,
-    pagination: { el: '.swiper-pagination' },
-    autoplay: { delay: 2500 }
-  });
-</script>
 </body>
 </html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esport World Stats - Pays</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.9.0/dist/themes/dark.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.9.0/dist/shoelace.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="index.html" class="logo">Esport World Stats</a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="rankings.html">Classements</a></li>
+        <li><a href="events.html">Événements</a></li>
+        <li><a href="teams.html">Structures</a></li>
+        <li><a href="countries.html">Pays</a></li>
+        <li class="dropdown">
+          <a href="lol.html">Jeux</a>
+          <ul class="dropdown-menu">
+            <li><a href="lol.html">LoL</a></li>
+            <li><a href="cs2.html">CS2</a></li>
+            <li><a href="dota2.html">Dota 2</a></li>
+            <li><a href="valorant.html">Valorant</a></li>
+            <li><a href="fortnite.html">Fortnite</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <h1>Pays représentés</h1>
+  <div class="country-grid">
+    <div class="country-card" data-aos="fade-up">
+      <h3>France</h3>
+      <p>Meilleures équipes: Vitality, Karmine Corp</p>
+      <p>Médailles: 🥇5 🥈3 🥉2</p>
+    </div>
+    <div class="country-card" data-aos="fade-up" data-aos-delay="100">
+      <h3>Corée du Sud</h3>
+      <p>Meilleures équipes: T1, Gen.G</p>
+      <p>Médailles: 🥇10 🥈4 🥉1</p>
+    </div>
+    <div class="country-card" data-aos="fade-up" data-aos-delay="200">
+      <h3>USA</h3>
+      <p>Meilleures équipes: Team Liquid, Cloud9</p>
+      <p>Médailles: 🥇7 🥈5 🥉3</p>
+    </div>
+    <div class="country-card" data-aos="fade-up" data-aos-delay="300">
+      <h3>Ukraine</h3>
+      <p>Meilleures équipes: Natus Vincere, B8</p>
+      <p>Médailles: 🥇4 🥈2 🥉1</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Esport World Stats</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esport World Stats - Classements</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.9.0/dist/themes/dark.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.9.0/dist/shoelace.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="index.html" class="logo">Esport World Stats</a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="rankings.html">Classements</a></li>
+        <li><a href="events.html">Événements</a></li>
+        <li><a href="teams.html">Structures</a></li>
+        <li><a href="countries.html">Pays</a></li>
+        <li class="dropdown">
+          <a href="lol.html">Jeux</a>
+          <ul class="dropdown-menu">
+            <li><a href="lol.html">LoL</a></li>
+            <li><a href="cs2.html">CS2</a></li>
+            <li><a href="dota2.html">Dota 2</a></li>
+            <li><a href="valorant.html">Valorant</a></li>
+            <li><a href="fortnite.html">Fortnite</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <h1>Classement mondial 2025</h1>
+  <table>
+    <thead>
+      <tr><th>Rang</th><th>Équipe</th><th>Score</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>G2 Esports</td><td>980</td></tr>
+      <tr><td>2</td><td>T1</td><td>950</td></tr>
+      <tr><td>3</td><td>Natus Vincere</td><td>930</td></tr>
+      <tr><td>4</td><td>Team Liquid</td><td>900</td></tr>
+      <tr><td>5</td><td>Fnatic</td><td>870</td></tr>
+    </tbody>
+  </table>
+  <canvas id="rankingChart"></canvas>
+</section>
+
+<footer>
+  <p>© 2025 Esport World Stats</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="main.js"></script>
+<script>
+const ctx = document.getElementById('rankingChart');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['G2','T1','NaVi','Liquid','Fnatic'],
+    datasets: [{
+      label: 'Score',
+      data: [980,950,930,900,870],
+      backgroundColor: '#3b82f6'
+    }]
+  },
+  options: {
+    plugins:{legend:{display:false}},
+    scales:{y:{beginAtZero:true}}
+  }
+});
+</script>
+</body>
+</html>
