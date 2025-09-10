@@ -264,6 +264,7 @@ footer {
 
 .game-card {
   display: block;
+  position: relative;
   border: 1px solid var(--card-bg);
   border-radius: 0.5rem;
   overflow: hidden;
@@ -272,10 +273,20 @@ footer {
 .game-card img {
   width: 100%;
   display: block;
-  border-radius: 0.5rem;
   transition: transform .3s;
 }
 
 .game-card:hover img {
   transform: scale(1.05);
+}
+
+.game-card span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 600;
 }
