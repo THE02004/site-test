@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Esport World Stats - Événements</title>
+  
+  <!-- Fonts & Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.9.0/dist/themes/dark.css" />
   <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.9.0/dist/shoelace.js"></script>
@@ -11,21 +13,21 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
+<header class="site-header">
   <div class="container">
     <a href="index.html" class="logo">
       <img src="Logo.png" alt="Esport World Stats">
     </a>
     <button class="menu-toggle" aria-label="Menu">☰</button>
-    <nav>
+    <nav class="site-nav">
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="rankings.html">Classements</a></li>
-        <li><a href="events.html">Événements</a></li>
+        <li><a href="events.html" class="active">Événements</a></li>
         <li><a href="teams.html">Structures</a></li>
         <li><a href="countries.html">Pays</a></li>
         <li class="dropdown">
-          <a href="lol.html">Jeux</a>
+          <a href="#">Jeux ▾</a>
           <ul class="dropdown-menu">
             <li><a href="lol.html">LoL</a></li>
             <li><a href="cs2.html">CS2</a></li>
@@ -39,24 +41,59 @@
   </div>
 </header>
 
-<section data-aos="fade-up">
-  <h1>Worlds 2025 - Bracket</h1>
-  <div class="bracket">
-    <div class="round">
-      <div class="match">T1<br>2 - 0<br>G2 Esports</div>
-      <div class="match">JD Gaming<br>2 - 1<br>Gen.G</div>
+<main class="container">
+  <!-- Section bracket statique -->
+  <section data-aos="fade-up">
+    <h1>Worlds 2025 - Bracket</h1>
+    <div class="bracket">
+      <div class="round">
+        <div class="match">T1<br>2 - 0<br>G2 Esports</div>
+        <div class="match">JD Gaming<br>2 - 1<br>Gen.G</div>
+      </div>
+      <div class="round">
+        <div class="match champion">T1<br>3 - 1<br>JD Gaming</div>
+      </div>
     </div>
-    <div class="round">
-      <div class="match">T1<br>3 - 1<br>JD Gaming</div>
-    </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Section PandaScore -->
+  <section data-aos="fade-up">
+    <h2>Prochains matchs League of Legends</h2>
+    <ul id="matches" class="match-list"></ul>
+  </section>
+</main>
 
 <footer>
   <p>© 2025 Esport World Stats</p>
 </footer>
 
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="main.js"></script>
+<script>
+  AOS.init();
+</script>
+<script>
+  async function showUpcoming() {
+    try {
+      const res = await fetch("https://api.pandascore.co/lol/matches/upcoming?token=W4FBc_KPgNhEBeKAz1sdkPpqHYtEIQj9ZRE1R3ing_ASYpFkoAE");
+      const matches = await res.json();
+
+      const container = document.getElementById("matches");
+      container.innerHTML = "";
+
+      matches.slice(0, 10).forEach(m => {
+        const li = document.createElement("li");
+        const team1 = m.opponents[0]?.opponent?.name || "TBD";
+        const team2 = m.opponents[1]?.opponent?.name || "TBD";
+        const date = m.begin_at ? new Date(m.begin_at).toLocaleString("fr-FR") : "Date à venir";
+        li.textContent = `${team1} vs ${team2} — ${date}`;
+        container.appendChild(li);
+      });
+    } catch (e) {
+      console.error("Erreur API PandaScore :", e);
+    }
+  }
+  showUpcoming();
+</script>
 </body>
 </html>
