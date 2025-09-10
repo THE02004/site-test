@@ -161,7 +161,7 @@ sl-card.team-card:hover {
 .team-card [slot="image"] {
   display: block;
   margin: 0 auto;
-  max-width: 150px; /* ajuster selon le rendu souhaité */
+  max-width: 30px;
   height: auto;
 }
 
